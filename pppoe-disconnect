@@ -1,0 +1,7 @@
+:local RemoteAddr $"remote-address"
+
+:local InterfaceName [/interface get $interface name];
+
+:local Cliente $"user";
+
+:log warning "== DESCONECTOU == $Cliente == $RemoteAddr";

@@ -1,0 +1,13 @@
+:local RemoteAddr $"remote-address";
+
+:local InterfaceName [/interface get $interface name];
+
+:local Cliente $"user";
+
+:log warning "== CONECTOU == $Cliente == IPv4: $RemoteAddr";
+
+delay 10;
+
+:local PrefixoIPv6 [/ipv6 dhcp-server binding get value-name=address [find server=$InterfaceName]];
+
+:log warning "== CONECTOU == $Cliente == IPv6: $PrefixoIPv6";

@@ -1,13 +1,20 @@
+# Obtém o endereço IPv4 do usuário
 :local RemoteAddr $"remote-address";
 
+# Obtém o nome da interface de rede
 :local InterfaceName [/interface get $interface name];
 
+# Obtém o nome do usuário
 :local Cliente $"user";
 
+# Escreve uma mensagem de log com o endereço IPv4
 :log warning "== CONECTOU == $Cliente == IPv4: $RemoteAddr";
 
+# Adiciona um atraso de 10 segundos para garantir atribuição do endereço IPv6 pelo DHCP
 delay 10;
 
+# Obtém o endereço IPv6 do usuário
 :local PrefixoIPv6 [/ipv6 dhcp-server binding get value-name=address [find server=$InterfaceName]];
 
+# Escreve uma mensagem de log com o endereço IPv6
 :log warning "== CONECTOU == $Cliente == IPv6: $PrefixoIPv6";

@@ -1,7 +1,11 @@
+# Obtém o endereço IPv4 do usuário
 :local RemoteAddr $"remote-address"
 
+# Obtém o nome da interface de rede
 :local InterfaceName [/interface get $interface name];
 
+# Obtém o nome do usuário
 :local Cliente $"user";
 
+# Escreve uma mensagem de log com o endereço IPv4
 :log warning "== DESCONECTOU == $Cliente == $RemoteAddr";
